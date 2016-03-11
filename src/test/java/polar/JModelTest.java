@@ -1,5 +1,6 @@
 package polar;
 
+import com.sun.javafx.sg.prism.NGShape;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,5 +29,17 @@ public class JModelTest {
         Model<JAnimal> model = new Model<>(JAnimal.class);
         Assert.assertEquals(2,model.getFieldsCount());
 
+    }
+
+    @Test
+    public void testEntityName(){
+        Model<JAnimal> model = new Model<>(JAnimal.class);
+        Assert.assertEquals("animal", model.getEntityName());
+        try{
+            Model<Object> model1 = new Model<>(Object.class);
+            Assert.assertTrue(false);
+        } catch (IllegalArgumentException e){
+
+        }
     }
 }

@@ -28,4 +28,18 @@ class KModelTest {
         val model = Model(Animal::class.java)
         assertEquals(2, model.fieldsCount)
     }
+
+    @Test
+    fun testEntityName(){
+        val model = Model(Animal::class.java)
+        assertEquals("animal", model.entityName)
+
+        try {
+            val model1 = Model(Any::class.java)
+            assertTrue(false)
+        } catch (e: IllegalArgumentException){
+
+        }
+
+    }
 }
