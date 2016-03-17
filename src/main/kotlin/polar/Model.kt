@@ -10,7 +10,7 @@ import java.util.*
 class Model<T> {
     val clazz: Class<T>
 
-    private val fields: HashMap<String,Field> = HashMap()
+    val fields: HashMap<String,Field> = HashMap()
 
     var entityName: String? = null
         private set
@@ -40,6 +40,7 @@ class Model<T> {
             for(annotation in field.annotations){
                 when(annotation){
                     is polar.annotations.Field -> {
+                        field.isAccessible = true
                         fields.put(annotation.name,field)
                     }
                 }

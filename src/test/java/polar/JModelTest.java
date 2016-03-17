@@ -27,7 +27,7 @@ public class JModelTest {
     @Test
     public void testGetFieldsCount() {
         Model<JAnimal> model = new Model<>(JAnimal.class);
-        Assert.assertEquals(2,model.getFieldsCount());
+        Assert.assertEquals(6 ,model.getFieldsCount());
 
     }
 
