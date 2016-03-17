@@ -1,7 +1,6 @@
 package polar
 
 import java.util.*
-import kotlin.system.measureTimeMillis
 
 /**
  * Created by User on 11.03.2016.
@@ -20,8 +19,6 @@ class Storage {
             Short::class.java.name)
 
     val models: HashMap<Class<*>, Model<*>> = HashMap()
-
-    private var clazz: Class<*>? = null
 
     private val collections: HashMap<Class<*>, MutableList<Map<String, Any?>>> = HashMap()
 
@@ -71,7 +68,7 @@ class Storage {
         if (collections.containsKey(clazz)) {
             val maps = collections[clazz]
             val list = compose<T>(maps, models[clazz])
-            if(predicate == null) {
+            if (predicate == null) {
                 return list
             } else {
                 return list.filter(predicate)
